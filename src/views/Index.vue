@@ -1,5 +1,9 @@
 <template lang="pug">
-div {{regionsList}}
+.container.grid-lg
+  .columns
+    .column.col-4.col-md-6.col-sm-12(v-for="region in regionsList.results")
+      .card
+        .card-header {{region.name}}
 </template>
 
 <script>
