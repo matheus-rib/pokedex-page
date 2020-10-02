@@ -1,7 +1,19 @@
-const state = {}
+import pokemonsServices from '@/services/pokemons'
 
-const actions = {}
+const state = { pokemonsList: {} }
 
-const mutations = {}
+const actions = {
+  async fetchPokemonsList({ commit }) {
+    const { data } = await pokemonsServices.list()
+
+    commit('setPokemonsList', data)
+  }
+}
+
+const mutations = {
+  setPokemonsList(state, payload) {
+    state.pokemonsList = payload
+  },
+}
 
 export default { namespaced: true, state, actions, mutations }
