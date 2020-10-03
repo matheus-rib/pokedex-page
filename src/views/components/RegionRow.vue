@@ -1,5 +1,5 @@
 <template lang="pug">
-.card
+router-link.card(:to="{ name: 'regions.pokemonsList', params: { regionName: region.name } }")
   .card-header {{region.name}}
 </template>
 
