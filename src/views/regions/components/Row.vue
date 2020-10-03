@@ -1,6 +1,6 @@
 <template lang="pug">
-.card
-  .card-header {{pokedex.name}}
+.card.card-text-color
+  .card-header {{pokedex.name | normalize}}
 </template>
 
 <script>
