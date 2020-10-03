@@ -4,7 +4,7 @@
     router-link(:to="{name: 'home'}")
       img.title-img(src="../../assets/app-title.png")
   section.navbar-section
-    router-link.header-button.mr-1(:to="{name: 'home'}")
+    router-link.header-button.mr-1(:to="{name: 'about'}")
       figure.avatar.avatar-lg
         img(src="../../assets/pokeball.png" alt="Pokeball image")
       .h5 Home

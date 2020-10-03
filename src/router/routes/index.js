@@ -8,5 +8,10 @@ export default [
     name: 'home',
     component: componentImport('Index'),
   },
+  {
+    path: '/about',
+    name: 'about',
+    component: componentImport('About'),
+  },
   ...regions(componentImport),
 ]
