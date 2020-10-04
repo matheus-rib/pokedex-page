@@ -1,12 +1,12 @@
 <template lang="pug">
-router-link.card.card-text-color(:to="{ name: 'regions.pokedex.pokemonsList', params: { pokedexName: pokedex.name } }")
-  .card-header {{pokedex.name | normalize}}
+.card.card-text-color
+  .card-header {{pokemon.entry_number | pokedexEntry}} - {{pokemon.pokemon_species.name | normalize}}
 </template>
 
 <script>
 export default {
   props: {
-    pokedex: {
+    pokemon: {
       type: Object,
       required: true,
     },

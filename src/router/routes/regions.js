@@ -1,3 +1,5 @@
+import pokedexes from './pokedexes'
+
 export default componentImport => [
   {
     path: '/regions/:regionName',
@@ -11,6 +13,7 @@ export default componentImport => [
           title: 'Pokedexes',
         }
       },
+      ...pokedexes(componentImport)
     ],
   }
 ]

@@ -1,12 +1,12 @@
-import pokemonsServices from '@/services/pokemons'
+import pokedexesServices from '@/services/pokedexes'
 
-const state = { pokemonsList: {} }
+const state = { pokemonsList: [] }
 
 const actions = {
-  async fetchPokemonsList({ commit }) {
-    const { data } = await pokemonsServices.list()
+  async fetchPokemonsListInPokedex({ commit }, pokedexName) {
+    const { data } = await pokedexesServices.list(pokedexName)
 
-    commit('setPokemonsList', data)
+    commit('setPokemonsList', data.pokemon_entries)
   }
 }
 
