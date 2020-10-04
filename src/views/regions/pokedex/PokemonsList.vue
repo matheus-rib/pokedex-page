@@ -3,9 +3,11 @@
   .filter-field
     .pokemons-count Pokemons: {{pokemonsCount}}
     filter-field(@search="filterList" placeholder="Search pokemons")
-  .columns
+  .columns(v-if="pokemonsCount")
     .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="pokemon in filteredPokemonsList" :key="pokemon.entry_number")
       row(:pokemon="pokemon")
+  empty-container(v-else :subtitle="emptyMessage")
+    button.btn.btn-primary(slot="action" @click="filterList('')") Clean search
 .loading.loading-lg(v-else)
 </template>
 
@@ -13,6 +15,7 @@
 import { mapState, mapActions } from 'vuex'
 import Row from './components/Row'
 import FilterField from '@/components/FilterField'
+import EmptyContainer from '@/components/EmptyContainer'
 
 export default {
   data() {
@@ -22,14 +25,18 @@ export default {
     }
   },
 
-  components: { Row, FilterField },
+  components: { Row, FilterField, EmptyContainer },
 
   computed: {
     ...mapState('pokemons', ['filteredPokemonsList']),
 
     pokemonsCount() {
       return this.filteredPokemonsList.length
-    }
+    },
+
+    emptyMessage() {
+      return `No results matching "${this.textFilter}"`
+    },
   },
   
   methods: {
