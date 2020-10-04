@@ -14,7 +14,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import Row from './components/Row'
+import Row from './components/PokedexRow'
 import EmptyContainer from '@/components/EmptyContainer'
 
 export default {
