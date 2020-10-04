@@ -1,21 +1,15 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
-  .pokedex-header
-    .pokedexes-counter Available Pokedexes: {{pokedexesCount}}
-  div(v-if="pokedexesCount")
-    .columns
-      .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="pokedex in pokedexesList" :key="pokedex.name")
-        row(:pokedex="pokedex")
-  div(v-else) 
-    empty-container(subtitle="This region has no available pokedex.")
-      router-link.btn.btn-primary(slot="action" :to="{ name: 'home' }") Back to home
+  pokedex-list(:pokedexesList="pokedexesList")
+    empty-container(slot="empty-pokedexes" subtitle="This region has no available pokedex.")
+      router-link.btn.btn-primary(slot="action" :to="{ name: 'regions.index' }") Back to regions
 .loading.loading-lg(v-else)
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import Row from './components/PokedexRow'
 import EmptyContainer from '@/components/EmptyContainer'
+import PokedexList from '@/components/pokedexList/Index'
 
 export default {
   data() {
@@ -47,6 +41,6 @@ export default {
     }
   },
 
-  components: { Row, EmptyContainer }
+  components: { EmptyContainer, PokedexList }
 }
 </script>
