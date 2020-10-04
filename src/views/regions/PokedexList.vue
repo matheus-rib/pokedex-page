@@ -2,7 +2,7 @@
 .container.grid-xl
   div(v-if="pokedexesList.length")
     .columns
-      .column.col-4.col-md-6.col-sm-12(v-for="pokedex in pokedexesList" :key="pokedex.name")
+      .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="pokedex in pokedexesList" :key="pokedex.name")
         row(:pokedex="pokedex")
   div(v-else) 
     empty-container(subtitle="This region has no available pokedex.")
