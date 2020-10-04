@@ -5,8 +5,8 @@
       .column.col-4.col-md-6.col-sm-12(v-for="pokedex in pokedexesList" :key="pokedex.name")
         row(:pokedex="pokedex")
   div(v-else) 
-    empty-container
-      router-link.btn.btn-primary(slot="action" :to="{ name: 'home' }") Tela inicial
+    empty-container(subtitle="This region has no available pokedex.")
+      router-link.btn.btn-primary(slot="action" :to="{ name: 'home' }") Back to home
 </template>
 
 <script>
