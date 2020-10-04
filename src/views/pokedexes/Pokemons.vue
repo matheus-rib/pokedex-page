@@ -39,7 +39,7 @@ export default {
     },
 
     emptyMessage() {
-      return `No results matching "${this.textFilter}"`
+      return `No results matching "${this.textFilter}".`
     },
 
     showScrollToTopButton() {
