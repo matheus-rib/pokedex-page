@@ -27,6 +27,8 @@
           a(href="https://picturepan2.github.io/spectre/index.html" target="_blank") Spectre.css
         dd 
           a(href="https://www.npmjs.com/package/v-toaster" target="_blank") V-Toaster
+        dd 
+          a(href="https://github.com/Yuliang-Lee/vue2-smooth-scroll" target="_blank") Vue2 Smooth Scroll
       p Developed with the following Pre-Processors:
       dl
         dd 
