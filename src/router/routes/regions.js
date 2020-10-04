@@ -6,7 +6,10 @@ export default componentImport => [
       {
         path: '/',
         name: 'regions.pokedexesList',
-        component: componentImport('regions/PokedexList')
+        component: componentImport('regions/PokedexList'),
+        meta: {
+          title: 'Pokedexes',
+        }
       },
     ],
   }
