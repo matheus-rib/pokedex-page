@@ -17,12 +17,12 @@ export default {
 
     title: {
       type: String,
-      default: 'Sem resultados',
+      default: 'No results',
     },
 
     subtitle: {
       type: String,
-      default: 'Não encontrado resultados para essa busca.',
+      default: 'No matching results for your search.',
     },
   },
 }
