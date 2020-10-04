@@ -25,6 +25,8 @@
           a(href="https://www.npmjs.com/package/paliari-js-utils" target="_blank") Paliari JS Utils
         dd 
           a(href="https://picturepan2.github.io/spectre/index.html" target="_blank") Spectre.css
+        dd 
+          a(href="https://www.npmjs.com/package/v-toaster" target="_blank") V-Toaster
       p Developed with the following Pre-Processors:
       dl
         dd 

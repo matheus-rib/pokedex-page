@@ -40,6 +40,8 @@ export default {
     try {
       this.loading = true
       await this.fetchPokedexesInRegionList(this.$route.params.regionName)
+    } catch(e) {
+      this.$toaster.error(e.message)
     } finally {
       this.loading = false
     }

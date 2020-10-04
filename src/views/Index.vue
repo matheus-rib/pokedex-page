@@ -50,6 +50,8 @@ export default {
     try {
       this.loading = true
       await this.fetchRegionsList()
+    } catch(e) {
+      this.$toaster.error(e.message)
     } finally {
       this.loading = false
     }
