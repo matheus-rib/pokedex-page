@@ -29,6 +29,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.empty
+  background #f7f8f9aa
 .color-danger
   color #ff0000
 </style>
