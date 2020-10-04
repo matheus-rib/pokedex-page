@@ -1,5 +1,5 @@
 <template lang="pug">
-.container.grid-xl
+.container.grid-xl(v-if="!loading")
   .filter-field
     .regions-count Regions: {{countRegions}}
     filter-field(@search="filterList" placeholder="Search regions")
@@ -8,6 +8,7 @@
       region-row(:region="region")
   empty-container(v-else :subtitle="emptyMessage")
     button.btn.btn-primary(slot="action" @click="filterList('')") Clean search
+.loading.loading-lg(v-else)
 </template>
 
 <script>
@@ -19,7 +20,8 @@ import EmptyContainer from '@/components/EmptyContainer'
 export default {
   data() {
     return {
-      textFilter: ''
+      textFilter: '',
+      loading: false,
     }
   },
 
@@ -45,7 +47,12 @@ export default {
   },
 
   async created() {
-    await this.fetchRegionsList()
+    try {
+      this.loading = true
+      await this.fetchRegionsList()
+    } finally {
+      this.loading = false
+    }
   },
 
   components: { RegionRow, FilterField, EmptyContainer },

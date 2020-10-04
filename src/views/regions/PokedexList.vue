@@ -1,5 +1,5 @@
 <template lang="pug">
-.container.grid-xl
+.container.grid-xl(v-if="!loading")
   .pokedex-header
     .pokedexes-counter Available Pokedexes: {{pokedexesCount}}
   div(v-if="pokedexesCount")
@@ -9,6 +9,7 @@
   div(v-else) 
     empty-container(subtitle="This region has no available pokedex.")
       router-link.btn.btn-primary(slot="action" :to="{ name: 'home' }") Back to home
+.loading.loading-lg(v-else)
 </template>
 
 <script>
@@ -17,6 +18,12 @@ import Row from './components/Row'
 import EmptyContainer from '@/components/EmptyContainer'
 
 export default {
+  data() {
+    return {
+      loading: false,
+    }
+  },
+
   computed: {
     ...mapState('regions', ['pokedexesList']),
 
@@ -30,7 +37,12 @@ export default {
   },
 
   async created() {
-    await this.fetchPokedexesInRegionList(this.$route.params.regionName)
+    try {
+      this.loading = true
+      await this.fetchPokedexesInRegionList(this.$route.params.regionName)
+    } finally {
+      this.loading = false
+    }
   },
 
   components: { Row, EmptyContainer }
