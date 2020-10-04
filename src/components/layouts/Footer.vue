@@ -2,7 +2,7 @@
 .text-ellipsis
   .divider
   footer.text-dark
-    a(href="https://github.com/matheus-rib/pokedex-page") Pokedex-page
+    a(href="https://github.com/matheus-rib/pokedex-page" target="_blank") Pokedex-page
     code
       small (v{{version}})
 </template>
