@@ -16,8 +16,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.footer
-  position fixed
-  bottom 0
-  width 100%
+#app
+  background-image url('./assets/grey-pokeball.png')
+  background-repeat no-repeat
+  background-position center
+  background-size auto
+  min-height 100vh
+  .footer
+    position fixed
+    bottom 0
+    width 100%
 </style>
