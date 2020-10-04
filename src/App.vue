@@ -20,6 +20,7 @@ export default {
   background-image url('./assets/grey-pokeball.png')
   background-repeat no-repeat
   background-position center
+  background-attachment fixed
   background-size auto
   min-height 100vh
   padding-bottom 41px
