@@ -65,6 +65,12 @@ export default {
 .filter-field
   display flex
   justify-content space-between
+
   form
     width 15rem
+
+@media(max-width: 485px)
+  .filter-field
+    flex-direction column
+    align-items center
 </style>
