@@ -1,6 +1,8 @@
 <template lang="pug">
 .container.grid-xl
-  div(v-if="pokedexesList.length")
+  .pokedex-header
+    .pokedexes-counter Available Pokedexes: {{pokedexesCount}}
+  div(v-if="pokedexesCount")
     .columns
       .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="pokedex in pokedexesList" :key="pokedex.name")
         row(:pokedex="pokedex")
@@ -16,7 +18,11 @@ import EmptyContainer from '@/components/EmptyContainer'
 
 export default {
   computed: {
-    ...mapState('regions', ['pokedexesList'])
+    ...mapState('regions', ['pokedexesList']),
+
+    pokedexesCount() {
+      return this.pokedexesList.length
+    }
   },
 
   methods: {
