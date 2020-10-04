@@ -1,33 +1,35 @@
 <template lang="pug">
 .d-flex
   section.navbar-section
-    router-link(:to="{name: 'home'}")
-      img.title-img(src="../../assets/app-title.png")
-  section.navbar-section
     router-link.header-button.mr-1(:to="{name: 'home'}")
       figure.avatar.avatar-lg
-        img(src="../../assets/pokeball.png" alt="Pokeball image")
+        img(src="../../../assets/pokeball.png" alt="Pokeball image")
       .h5 Home
+  section.navbar-section
+    router-link(:to="{name: 'home'}")
+      img.title-img(src="../../../assets/app-title.png")
+  section.navbar-section
     router-link.header-button.mr-1(:to="{name: 'about'}")
       figure.avatar.avatar-lg.avatar-transparent
-        img(src="../../assets/pikachu.png" alt="Pikachu image")
+        img(src="../../../assets/pikachu.png" alt="Pikachu image")
       .h5 About
     a.header-button.mr-1(href="https://github.com/matheus-rib/pokedex-page" target="_blank")
       figure.avatar.avatar-lg.avatar-transparent
-        img(src="../../assets/pokedex.png" alt="Pokedex image")
+        img(src="../../../assets/pokedex.png" alt="Pokedex image")
       .h5 Repo
 </template>
 
 <style lang="stylus" scoped>
-@import '../../styles/_variables.styl'
+@import '../../../styles/_variables.styl'
 .d-flex
-  flex-direction column
-  align-items center
+  justify-content space-between
 
  .navbar-app
+    display flex
+    justify-content space-between
+
     .navbar-section
       display flex
-      flex-direction row
 
     a:visited, a:link, a:active
       text-decoration none
@@ -49,5 +51,4 @@
 
     .title-img
       height 58px
-      margin-bottom 10px
 </style>
