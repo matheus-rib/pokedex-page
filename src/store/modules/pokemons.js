@@ -5,7 +5,7 @@ const state = { pokemonsList: [], filteredPokemonsList: [] }
 
 const actions = {
   async fetchPokemonsListInPokedex({ commit }, pokedexName) {
-    const { data } = await pokedexesServices.list(pokedexName)
+    const { data } = await pokedexesServices.listInPokedex(pokedexName)
 
     commit('setPokemonsList', data.pokemon_entries)
   },
