@@ -1,6 +1,6 @@
 <template lang="pug">
 router-link.card.card-text-color(:to="{ name: item.link }")
-  .card-header
+  .card-header.text-size
     i.mr-3(:class="item.icon")
     span {{item.title}}
 </template>
@@ -26,7 +26,4 @@ export default {
   .card-header
     .mr-3
       margin-right 20px
-
-    i, span
-      font-size 1rem
 </style>

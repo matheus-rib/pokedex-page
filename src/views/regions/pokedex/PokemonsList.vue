@@ -2,7 +2,7 @@
 .container.grid-xl(ref="header")
   div(v-if="!loading")
     .filter-field
-      .pokemons-count Pokemons: {{pokemonsCount}}
+      .pokemons-count.text-size Pokemons: {{pokemonsCount}}
       filter-field(@search="filterList" placeholder="Search pokemons")
     .columns(v-if="pokemonsCount")
       .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="pokemon in filteredPokemonsList" :key="pokemon.entry_number")

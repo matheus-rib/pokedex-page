@@ -1,7 +1,7 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
   .filter-field
-    .regions-count Regions: {{countRegions}}
+    .regions-count.text-size Regions: {{countRegions}}
     filter-field(@search="filterList" placeholder="Search regions")
   .columns(v-if="countRegions")
     .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="region in filteredRegionsList.results" :key="region.name")

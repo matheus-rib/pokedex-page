@@ -1,7 +1,7 @@
 <template lang="pug">
 .container.grid-xl
   .pokedex-header
-    .pokedexes-counter Available Pokedexes: {{pokedexesCount}}
+    .pokedexes-counter.text-size Available Pokedexes: {{pokedexesCount}}
   div(v-if="pokedexesCount")
     .columns
       .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="pokedex in pokedexesList" :key="pokedex.name")

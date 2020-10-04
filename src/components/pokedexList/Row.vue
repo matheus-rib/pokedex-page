@@ -1,6 +1,6 @@
 <template lang="pug">
 router-link.card.card-text-color(:to="{ name: 'regions.pokedex.pokemonsList', params: { pokedexName: pokedex.name } }")
-  .card-header {{pokedex.name | normalize}}
+  .card-header.text-size {{pokedex.name | normalize}}
 </template>
 
 <script>

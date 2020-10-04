@@ -1,6 +1,6 @@
 <template lang="pug">
 router-link.card.card-text-color(:to="{ name: 'regions.pokedexesList', params: { regionName: region.name } }")
-  .card-header {{region.name | capitalize}}
+  .card-header.text-size {{region.name | capitalize}}
 </template>
 
 <script>
