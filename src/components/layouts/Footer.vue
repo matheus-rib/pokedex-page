@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.text-dark
-  text-align right
+.text-ellipsis
+  background-color #fff
+  .text-dark
+    text-align right
 </style>

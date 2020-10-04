@@ -22,6 +22,7 @@ export default {
   background-position center
   background-size auto
   min-height 100vh
+  padding-bottom 41px
   .footer
     position fixed
     bottom 0
