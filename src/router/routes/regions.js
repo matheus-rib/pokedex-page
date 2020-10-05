@@ -1,5 +1,3 @@
-import pokedexes from './pokedexes'
-
 export default componentImport => [
   {
     path: '/regions',
