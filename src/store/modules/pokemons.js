@@ -3,7 +3,13 @@ import pokemonsServices from '@/services/pokemons'
 import TotalPagesCount from '@/lib/TotalPagesCount'
 import { deepClone } from 'paliari-js-utils'
 
-const state = { pokemonsList: [], filteredPokemonsList: [], pokemonsListPages: 0, totalPokemonsEntries: 0 }
+const state = {
+  pokemonsList: [],
+  filteredPokemonsList: [],
+  pokemonsListPages: 0,
+  totalPokemonsEntries: 0,
+  currentPokemon: {},
+}
 
 const actions = {
   async fetchPokemonsList({ commit }, page = 1) {
@@ -22,6 +28,11 @@ const actions = {
 
   filterPokemonsList({ commit }, textToFilter) {
     commit('filterPokemonsList', textToFilter)
+  },
+
+  async fetchPokemon({ commit }, pokemonName) {
+    const { data } = await pokemonsServices.show(pokemonName)
+    commit('setCurrentPokemon', data)
   },
 }
 
@@ -48,7 +59,11 @@ const mutations = {
 
   setTotalPokemonsEntries(state, payload) {
     state.totalPokemonsEntries = payload
-  }
+  },
+
+  setCurrentPokemon(state, payload) {
+    state.currentPokemon = payload
+  },
 }
 
 export default { namespaced: true, state, actions, mutations }

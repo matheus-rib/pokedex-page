@@ -8,6 +8,11 @@ export default componentImport => [
         name: 'pokemons.index',
         component: componentImport('pokemons/Index')
       },
+      {
+        path: ':pokemonName',
+        name: 'pokemons.show',
+        component: componentImport('pokemons/Show')
+      },
     ],
   },
 ]
