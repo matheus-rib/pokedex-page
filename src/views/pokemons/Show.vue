@@ -1,7 +1,9 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
   .pokemon-data
-    img.pokemon-portrait(:src="currentPokemon.sprites.front_default")
+    img.pokemon-portrait(v-if="currentPokemon.sprites.front_default" :src="currentPokemon.sprites.front_default")
+    .pokemon-portrait.empty(v-else)
+      i.fas.fa-camera.fa-4x.fa-fw
     .pokemon-info
       .text-size Id: {{currentPokemon.id | pokedexEntry}}
       .text-size Name: {{currentPokemon.name | capitalize}}
@@ -55,6 +57,14 @@ export default {
     border 3px solid #CACACA
     border-radius 50%
     background-color #FFF
+
+  .empty
+    width 150px
+    height 150px
+    display flex
+    justify-content center
+    align-items center
+    color #CACACA
   
   .pokemon-info
     padding-left 20px
