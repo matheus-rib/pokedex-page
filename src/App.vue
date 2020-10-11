@@ -25,8 +25,13 @@ export default {
   min-height 100vh
   padding-bottom 41px
   position relative
+
   .footer
     position fixed
     bottom 0
     width 100%
+
+@media(max-width: 600px)
+  #app
+    background none
 </style>
