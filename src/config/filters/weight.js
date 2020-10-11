@@ -1,0 +1,1 @@
+export default weight => `${weight / 10} kg` 

@@ -10,6 +10,10 @@
         .text-size Name: {{currentPokemon.name | capitalize}}
         .text-size Type(s): 
           span.chip(v-for="type in currentPokemon.types" :key="type.slot" :style="{background: pokemonTypes[type.type.name].color}") {{pokemonTypes[type.type.name].name}}
+        .text-size Height: {{currentPokemon.height | height}}
+        .text-size Weight: {{currentPokemon.weight | weight}}
+    .pokemon-abilities-container
+      pokemon-abilities(:abilities="currentPokemon.abilities")
     .pokemon-moves-container
       pokemon-moves(:moves="currentPokemon.moves")
   div(v-else)
@@ -24,6 +28,7 @@ import pokemonTypes from '@/lib/PokemonTypes'
 import EmptyContainer from '@/components/EmptyContainer'
 import { ucfirst } from 'paliari-js-utils'
 import PokemonMoves from './components/pokemonMoves/Index'
+import PokemonAbilities from './components/pokemonAbilities/Index'
 
 export default {
   data() {
@@ -34,7 +39,7 @@ export default {
     }
   },
 
-  components: { EmptyContainer, PokemonMoves },
+  components: { EmptyContainer, PokemonMoves, PokemonAbilities },
 
   computed: {
     ...mapState('pokemons', ['currentPokemon']),
@@ -93,7 +98,7 @@ export default {
     .chip
       color #FFF
   
-.pokemon-moves-container
+.pokemon-abilities-container, .pokemon-moves-container
   padding-top 15px
 
 @media(max-width: 485px)
