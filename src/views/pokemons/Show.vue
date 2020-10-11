@@ -1,14 +1,17 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
-  .pokemon-data(v-if="!error")
-    img.pokemon-portrait(v-if="currentPokemon.sprites.front_default" :src="currentPokemon.sprites.front_default")
-    .pokemon-portrait.empty(v-else)
-      i.fas.fa-camera.fa-4x.fa-fw
-    .pokemon-info
-      .text-size Id: {{currentPokemon.id | pokedexEntry}}
-      .text-size Name: {{currentPokemon.name | capitalize}}
-      .text-size Type(s): 
-        span.chip(v-for="type in currentPokemon.types" :key="type.slot" :style="{background: pokemonTypes[type.type.name].color}") {{pokemonTypes[type.type.name].name}}
+  div(v-if="!error")
+    .pokemon-data
+      img.pokemon-portrait(v-if="currentPokemon.sprites.front_default" :src="currentPokemon.sprites.front_default")
+      .pokemon-portrait.empty(v-else)
+        i.fas.fa-camera.fa-4x.fa-fw
+      .pokemon-info
+        .text-size Id: {{currentPokemon.id | pokedexEntry}}
+        .text-size Name: {{currentPokemon.name | capitalize}}
+        .text-size Type(s): 
+          span.chip(v-for="type in currentPokemon.types" :key="type.slot" :style="{background: pokemonTypes[type.type.name].color}") {{pokemonTypes[type.type.name].name}}
+    .pokemon-moves-container
+      pokemon-moves(:moves="currentPokemon.moves")
   div(v-else)
     empty-container(:title="errorMessage" :subtitle="error")
       button.btn.btn-primary(slot="action" @click="goBack") Go back
@@ -19,7 +22,9 @@
 import { mapState, mapActions } from 'vuex'
 import pokemonTypes from '@/lib/PokemonTypes'
 import EmptyContainer from '@/components/EmptyContainer'
-import { ucfirst } from 'paliari-js-utils';
+import { ucfirst } from 'paliari-js-utils'
+import PokemonMoves from './components/pokemonMoves/Index'
+
 export default {
   data() {
     return {
@@ -29,7 +34,7 @@ export default {
     }
   },
 
-  components: { EmptyContainer },
+  components: { EmptyContainer, PokemonMoves },
 
   computed: {
     ...mapState('pokemons', ['currentPokemon']),
@@ -63,7 +68,7 @@ export default {
 
 <style lang="stylus" scoped>
 .pokemon-data
-  background-color #CACACA66
+  background-color #EAEAEA
   padding 20px
   display flex
   align-items center
@@ -87,6 +92,9 @@ export default {
     padding-left 20px
     .chip
       color #FFF
+  
+.pokemon-moves-container
+  padding-top 15px
 
 @media(max-width: 485px)
   .pokemon-data
