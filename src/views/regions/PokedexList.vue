@@ -1,6 +1,6 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
-  pokedex-list(:pokedexesList="pokedexesList")
+  pokedex-list(:pokedexesList="pokedexesList" :goBackRoute="goBackRoute")
     empty-container(slot="empty-pokedexes" subtitle="This region has no available pokedex.")
       router-link.btn.btn-primary(slot="action" :to="{ name: 'regions.index' }") Back to regions
 .loading.loading-lg(v-else)
@@ -23,7 +23,11 @@ export default {
 
     pokedexesCount() {
       return this.pokedexesList.length
-    }
+    },
+
+    goBackRoute() {
+      return { route: { name: 'regions.index' }, tooltip: 'Back to regions list' }
+    },
   },
 
   methods: {

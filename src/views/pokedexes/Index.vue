@@ -1,6 +1,6 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
-  pokedex-list(:pokedexesList="filteredPokedexesList" :allowFilter="true" @filterList="filterList")
+  pokedex-list(:pokedexesList="filteredPokedexesList" :allowFilter="true" @filterList="filterList" :goBackRoute="goBackRoute")
     empty-container(slot="empty-pokedexes" :subtitle="emptyContainerSubtitle")
       button.btn.btn-primary(slot="action" @click="filterList('')") Clean search
 .loading.loading-lg(v-else)
@@ -28,6 +28,10 @@ export default {
 
     emptyContainerSubtitle() {
       return `No results matching "${this.textFilter}".`
+    },
+
+    goBackRoute() {
+      return { route: { name: 'home' }, tooltip: 'Back to home' }
     },
   },
 

@@ -1,8 +1,10 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
   .filter-field
-    .regions-count.text-size Regions: {{countRegions}}
-    filter-field(@search="filterList" placeholder="Search regions")
+    .d-flex
+      go-back-button(:to="{name: 'home'}" tooltip="Back to home")
+      .regions-count.text-size Regions: {{countRegions}}
+    filter-field.filter(@search="filterList" placeholder="Search regions")
   .columns(v-if="countRegions")
     .column.col-3.col-lg-4.col-md-6.col-sm-12(v-for="region in filteredRegionsList.results" :key="region.name")
       region-row(:region="region")
@@ -16,6 +18,7 @@ import { mapState, mapActions } from 'vuex'
 import RegionRow from './components/RegionRow'
 import FilterField from '@/components/FilterField'
 import EmptyContainer from '@/components/EmptyContainer'
+import GoBackButton from '@/components/GoBackButton'
 
 export default {
   data() {
@@ -57,7 +60,7 @@ export default {
     }
   },
 
-  components: { RegionRow, FilterField, EmptyContainer },
+  components: { RegionRow, FilterField, EmptyContainer, GoBackButton },
 }
 </script>
 
@@ -66,11 +69,20 @@ export default {
   display flex
   justify-content space-between
 
+  .d-flex
+    align-items center
+
   form
     width 15rem
 
 @media(max-width: 485px)
   .filter-field
     flex-direction column
-    align-items center
+    align-items flex-start
+
+    .d-flex
+      padding-bottom 5px
+    
+    .filter
+      width 100%
 </style>

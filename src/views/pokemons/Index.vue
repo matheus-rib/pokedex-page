@@ -1,7 +1,8 @@
 <template lang="pug">
 .container.grid-xl(ref="header")
   div(v-if="!loading")
-    .filter-field
+    .header
+      go-back-button(:to="{name: 'home'}" tooltip="Back to home")
       .pokemons-count.text-size Total pokemons count: {{ totalPokemonsEntries }}
     .columns
       .column.col-3.col-lg-6.col-sm-12(
@@ -30,6 +31,7 @@ import FilterField from "@/components/FilterField"
 import EmptyContainer from "@/components/EmptyContainer"
 import ScrollToTopButton from "@/components/ScrollToTopButton"
 import Paginator from "@/components/Paginator"
+import GoBackButton from '@/components/GoBackButton'
 
 export default {
   data() {
@@ -46,6 +48,7 @@ export default {
     EmptyContainer,
     ScrollToTopButton,
     Paginator,
+    GoBackButton,
   },
 
   computed: {
@@ -93,15 +96,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.filter-field
+.header
   display flex
-  justify-content space-between
-
-  form
-    width 15rem
-
-@media(max-width: 485px)
-  .filter-field
-    flex-direction column
-    align-items center
+  align-items center
 </style>

@@ -1,6 +1,9 @@
 <template lang="pug">
 .container.grid-xl(v-if="!loading")
   div(v-if="!error")
+    .d-flex
+      go-back-button(:to="{name: 'pokemons.index'}" tooltip="Back to pokemons list")
+      .text-size Pokemon Entry
     .pokemon-data
       img.pokemon-portrait(v-if="currentPokemon.sprites.front_default" :src="currentPokemon.sprites.front_default")
       .pokemon-portrait.empty(v-else)
@@ -29,6 +32,7 @@ import EmptyContainer from '@/components/EmptyContainer'
 import { ucfirst } from 'paliari-js-utils'
 import PokemonMoves from './components/pokemonMoves/Index'
 import PokemonAbilities from './components/pokemonAbilities/Index'
+import GoBackButton from '@/components/GoBackButton'
 
 export default {
   data() {
@@ -39,7 +43,7 @@ export default {
     }
   },
 
-  components: { EmptyContainer, PokemonMoves, PokemonAbilities },
+  components: { EmptyContainer, PokemonMoves, PokemonAbilities, GoBackButton },
 
   computed: {
     ...mapState('pokemons', ['currentPokemon']),
@@ -72,6 +76,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.d-flex
+  align-items center
+  padding-bottom 5px
 .pokemon-data
   background-color #EAEAEA
   padding 20px
